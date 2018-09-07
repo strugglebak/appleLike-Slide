@@ -5,8 +5,6 @@ function gotoSlide(menuItemIndex) {
     menuItemIndex = $menuItems.length - 1;
   }
 
-  console.log('menuItemIndex: ', menuItemIndex);
-
   if (menuItemIndex === 1 && curIndex === $menuItems.length - 1) {
     // 从最后一张跳到第一张
     $images.css({
@@ -43,6 +41,12 @@ function bindEvents() {
   });
 }
 
+function setSlideOn() {
+  return setInterval(function() {
+    gotoSlide(curIndex + 1);
+  }, 2000);
+}
+
 let $menuItems = $('#menuItems > li');
 let $images = $('#images');
 let $imagesChild = $images.children('img');
@@ -60,3 +64,10 @@ $images.show();
 let curIndex = 1;
 bindEvents();
 
+var timeId = setSlideOn();
+$('#mainWindow').on('mouseenter', function() {
+  window.clearInterval(timeId);
+});
+$('#mainWindow').on('mouseleave', function() {
+  timeId = setSlideOn();
+});
