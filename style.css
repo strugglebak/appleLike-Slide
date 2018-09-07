@@ -4,11 +4,7 @@ body {color: #444444; background: #f2f2f2;}
 a {text-decoration: none;border: none;}
 img {border: none;}
 ul {list-style: none;}
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
+.clearfix::after { content: ""; display: block; clear: both; } 
 
 #gallery {
   border: 1px solid white;
@@ -27,6 +23,7 @@ ul {list-style: none;}
 }
 #mainWindow > .images {
   display: flex;
+  transition: all 0.5s;
 }
 
 .menu {
