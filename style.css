@@ -28,6 +28,7 @@ ul {list-style: none;}
 
 .menu {
   width: 920px;
+  caret-color: transparent;
 }
 .menu > ul {
   text-align: center;
