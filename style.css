@@ -28,13 +28,28 @@ ul {list-style: none;}
   border: 1px solid blue;
   width: 920px;
 }
-.menu {
+.menu > ul {
   text-align: center;
 }
-.menu > a > img {
+.menu > ul > li {
+  display: inline-block;
   vertical-align: top;
 }
-.menu > a {
+.menu > ul > .fbar {
   display: inline-block;
+  background: url(./img/divider.png) no-repeat right;
+  width: 2px;
+  height: 45px;
+}
+.menu > ul > li > a > img {
+  vertical-align: top;
+}
+.menu > ul > li > a {
+  display: inline-block;
+  background: url(./img/divider.png) no-repeat right;
+
+  width: 60px;
+  line-height: 35px;
+  padding-top: 10px;
 }
 
