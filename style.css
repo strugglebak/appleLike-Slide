@@ -39,6 +39,7 @@ ul {list-style: none;}
 .menu > ul > li.fbar {
   display: inline-block;
   background: url(./img/divider.png) no-repeat right;
+  pointer-events: none;
   width: 2px;
   height: 45px;
 }
