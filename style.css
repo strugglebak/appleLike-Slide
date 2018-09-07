@@ -44,9 +44,14 @@ ul {list-style: none;}
   width: 2px;
   height: 45px;
 }
-.menu > ul > li:hover {
+
+.menu > ul > li.inactive:hover {
+  background: url(./img/pic_bg.png) repeat;
+}
+
+.menu > ul > li.active,
+.menu > ul > li.active:hover {
   background: url(./img/active_bg.png) no-repeat;
-  /*background: url(./img/pic_bg.png) repeat;*/
 }
 .menu > ul > li > a > img {
   vertical-align: top;

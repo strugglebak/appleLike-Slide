@@ -1,9 +1,13 @@
-function gotoSlide(menuItemIndex) {
+function gotoSlide($curMenuItem, menuItemIndex) {
   if (menuItemIndex > $menuItems.length - 1) {
     menuItemIndex = 1;
   } else if (menuItemIndex < 1) {
     menuItemIndex = $menuItems.length - 1;
   }
+
+  $curMenuItem.siblings().removeClass('active').addClass('inactive');
+  $curMenuItem.addClass('active');
+  $curMenuItem.siblings().eq(0).removeClass('active').removeClass('inactive');
 
   if (menuItemIndex === 1 && curIndex === $menuItems.length - 1) {
     // 从最后一张跳到第一张
@@ -37,14 +41,15 @@ function bindEvents() {
   $('#menuItems').on('click', 'li', function(e) {
     let $curMenuItem = $(e.currentTarget);
     let menuItemIndex = $curMenuItem.index();
-    gotoSlide(menuItemIndex);
+
+    gotoSlide($curMenuItem, menuItemIndex);
   });
 }
 
 function setSlideOn() {
   return setInterval(function() {
-    gotoSlide(curIndex + 1);
-  }, 2000);
+    gotoSlide($menuItems.eq(curIndex + 1), curIndex + 1);
+  }, 6000);
 }
 
 let $menuItems = $('#menuItems > li');
@@ -53,6 +58,10 @@ let $imagesChild = $images.children('img');
 let $firstFake = $imagesChild.eq(0).clone(true);
 let $lastFake = $imagesChild.eq($imagesChild.length - 1).clone(true);
 
+$menuItems.removeClass('active').addClass('inactive');
+$menuItems.eq(0).removeClass('inactive');
+$menuItems.eq(1).addClass('active');
+
 $images.prepend($lastFake);
 $images.append($firstFake);
 $images.hide().offset();
@@ -60,6 +69,7 @@ $images.css({
   transform: 'translateX(-920px)'
 });
 $images.show();
+
 
 let curIndex = 1;
 bindEvents();
