@@ -1,5 +1,6 @@
 * {margin: 0; padding: 0}
 * {box-sizing: border-box;}
+body {color: #444444; background: #f2f2f2;}
 a {text-decoration: none;border: none;}
 img {border: none;}
 ul {list-style: none;}
@@ -10,13 +11,17 @@ ul {list-style: none;}
 }
 
 #gallery {
-  border: 1px solid green;
+  border: 1px solid white;
+  box-shadow: 0 0 3px #AAAAAA;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: url(./img/panel.jpg) bottom center #ffffff;
   width: 920px;
   margin: 10px auto;
+  overflow: hidden;
 }
 
 #mainWindow {
-  border: 1px solid red;
   width: 920px; height: 400px;
   overflow: hidden;
 }
@@ -25,7 +30,6 @@ ul {list-style: none;}
 }
 
 .menu {
-  border: 1px solid blue;
   width: 920px;
 }
 .menu > ul {
@@ -35,11 +39,15 @@ ul {list-style: none;}
   display: inline-block;
   vertical-align: top;
 }
-.menu > ul > .fbar {
+.menu > ul > li.fbar {
   display: inline-block;
   background: url(./img/divider.png) no-repeat right;
   width: 2px;
   height: 45px;
+}
+.menu > ul > li:hover {
+  background: url(./img/active_bg.png) no-repeat;
+  /*background: url(./img/pic_bg.png) repeat;*/
 }
 .menu > ul > li > a > img {
   vertical-align: top;
