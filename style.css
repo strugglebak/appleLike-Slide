@@ -53,6 +53,9 @@ ul {list-style: none;}
 .menu > ul > li.active:hover {
   background: url(./img/active_bg.png) no-repeat;
 }
+.menu > ul > li.active > a {
+  cursor:default;
+}
 .menu > ul > li > a > img {
   vertical-align: top;
 }
