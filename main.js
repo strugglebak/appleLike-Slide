@@ -1,13 +1,9 @@
-function gotoSlide($curMenuItem, menuItemIndex) {
+function gotoSlide(menuItemIndex) {
   if (menuItemIndex > $menuItems.length - 1) {
     menuItemIndex = 1;
   } else if (menuItemIndex < 1) {
     menuItemIndex = $menuItems.length - 1;
   }
-
-  $curMenuItem.siblings().removeClass('active').addClass('inactive');
-  $curMenuItem.addClass('active');
-  $curMenuItem.siblings().eq(0).removeClass('active').removeClass('inactive');
 
   if (menuItemIndex === 1 && curIndex === $menuItems.length - 1) {
     // 从最后一张跳到第一张
@@ -41,15 +37,19 @@ function bindEvents() {
   $('#menuItems').on('click', 'li', function(e) {
     let $curMenuItem = $(e.currentTarget);
     let menuItemIndex = $curMenuItem.index();
+    $('#menuItems > li.menuItem').removeClass('active').addClass('inactive');
+    $curMenuItem.addClass('active');
 
-    gotoSlide($curMenuItem, menuItemIndex);
+    gotoSlide(menuItemIndex);
   });
 }
 
 function setSlideOn() {
   return setInterval(function() {
-    gotoSlide($menuItems.eq(curIndex + 1), curIndex + 1);
-  }, 6000);
+    gotoSlide(curIndex + 1);
+    $('#menuItems > li.menuItem').removeClass('active').addClass('inactive');
+    $menuItems.eq(curIndex).addClass('active');
+  }, 2000);
 }
 
 let $menuItems = $('#menuItems > li');
