@@ -1,7 +1,7 @@
 # appleLike-Slide
 
 ## 预览
-[点击这里预览](https://strugglebak.github.io/appleLike-Slide/)
+[点击这里预览](https://strugglebak.github.io/appleLike-slide/)
 
 ## 功能
 一个 Apple 风格的轮播 Demo,主要实现的功能有
